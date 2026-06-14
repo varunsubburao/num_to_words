@@ -1,0 +1,11 @@
+@NumToWords.API_HostAddress = http://localhost:5101
+
+GET {{NumToWords.API_HostAddress}}/
+Accept: text/plain
+
+###
+
+GET {{NumToWords.API_HostAddress}}/convert?amount=1234,56&language=english
+Accept: application/json
+
+###

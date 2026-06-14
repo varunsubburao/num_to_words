@@ -1,0 +1,21 @@
+services:
+  api:
+    build:
+      context: ./NumToWords.API
+      dockerfile: Dockerfile
+    expose:
+      - "8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+
+  ui:
+    build:
+      context: ./num-to-words-ui
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ""
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
